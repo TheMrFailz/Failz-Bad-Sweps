@@ -71,7 +71,7 @@ function SWEP:Initialize()
 	self.Owner:SetNWBool("isaiming", false)
 	self.BobScaleBackup = self.BobScale
 
-	BigIronBase = CreateSound(self.Weapon, "weapons/fwep_bigiron/bigiron.mp3")
+	BigIronBase = CreateSound(self.Owner, "weapons/fwep_bigiron/bigiron.mp3")
 	BigIronBase:Stop()
 
 	if BigIronBase != nil then
