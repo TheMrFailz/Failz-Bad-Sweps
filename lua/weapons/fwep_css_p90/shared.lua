@@ -24,6 +24,8 @@ SWEP.Secondary.Cone			= 0.01
 SWEP.Secondary.FOV			= 30
 SWEP.Secondary.Zoom			= 40 -- FOV you want in the optic
 
+SWEP.BulletForce = 0.25
+
 SWEP.HoldType				= "smg"
 SWEP.Weight = 1
 SWEP.Slot = 2
@@ -73,7 +75,7 @@ function SWEP:Initialize()
 	self.BobScaleBackup = self.BobScale
 	if CLIENT then
 		self.Weapon:ScopeThing()
-		self.Weapon.RenderTarget = GetRenderTarget("ScopeDrawPlease2", ScrW( ), ScrH( ), false)
+		self.Weapon.RenderTarget = GetRenderTarget("fwep_optic", ScrW( ), ScrH( ), false)
 
 		custommat3 = Material( "models/weapons/v_models/smg_p90/smg_p90_sight"  )
 

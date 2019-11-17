@@ -24,6 +24,8 @@ SWEP.AimDelay 				= 0.3
 SWEP.Secondary.Cone			= 0.025
 SWEP.Secondary.FOV			= 5
 
+SWEP.BulletForce = 0.25
+
 SWEP.HoldType				= "shotgun"
 SWEP.Weight = 1
 SWEP.Slot = 2

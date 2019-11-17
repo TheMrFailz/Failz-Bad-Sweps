@@ -23,6 +23,8 @@ SWEP.AimDelay 				= 0.3
 SWEP.Secondary.Cone			= 0.01
 SWEP.Secondary.FOV			= 20
 
+SWEP.BulletForce = 0.25
+
 SWEP.HoldType				= "ar2"
 SWEP.Weight = 1
 SWEP.Slot = 2

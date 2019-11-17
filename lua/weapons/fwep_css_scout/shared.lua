@@ -24,6 +24,8 @@ SWEP.Secondary.Cone			= 0.0
 SWEP.Secondary.FOV			= 20
 SWEP.Secondary.Zoom			= 40 -- FOV you want in the optic
 
+SWEP.BulletForce = 0.25
+
 SWEP.HoldType				= "ar2"
 SWEP.Weight = 1
 SWEP.Slot = 2
@@ -73,8 +75,8 @@ function SWEP:Initialize()
 	self.BobScaleBackup = self.BobScale
 	if CLIENT then
 		self.Weapon:ScopeThing()
-		self.Weapon.RenderTarget = GetRenderTarget("ScopeDrawPlease", ScrW( ), ScrH( ), false)
-
+		self.Weapon.RenderTarget = GetRenderTarget("fwep_optic", ScrW( ), ScrH( ), false)
+		print("optic_" .. self.Weapon:GetClass())
 		custommat2 = Material( "models/weapons/v_models/snip_awp/v_awp_scope"  )
 
 		local texture_matrix = custommat2:GetMatrix("$basetexturetransform")
@@ -86,14 +88,14 @@ function SWEP:Initialize()
 
 		--custommat2:SetFloat("$selfillummaskscale", 10)
 		
-		
+		custommat2:SetUndefined("$envmap")
 		
 		custommat2:SetTexture("$basetexture", self.Weapon.RenderTarget)
 
 		
 
-		--custommat2:SetString("$translucent", "1")
-		--custommat2:SetString("$alpha", 100)
+		custommat2:SetString("$translucent", "1")
+		custommat2:SetString("$alpha", 100)
 		--custommat2:SetString("$basetexturetransform","center .5 .5 scale -1 1 rotate 40 translate 0 0")
 	end
 end

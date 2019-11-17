@@ -31,6 +31,9 @@ SWEP.DrawAmmo = false
 SWEP.DrawCrosshair = true
 SWEP.UseHands = true
 
+SWEP.BulletForce = 10000
+
+
 SWEP.ViewModel = "models/weapons/c_357.mdl"
 SWEP.WorldModel = "models/weapons/w_357.mdl"
 

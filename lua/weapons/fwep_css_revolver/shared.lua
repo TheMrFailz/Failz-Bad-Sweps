@@ -30,6 +30,8 @@ SWEP.DrawAmmo = false
 SWEP.DrawCrosshair = true
 SWEP.UseHands = true
 
+SWEP.BulletForce = 0.25
+
 SWEP.ViewModel = "models/weapons/c_357.mdl"
 SWEP.WorldModel = "models/weapons/w_357.mdl"
 
@@ -86,9 +88,9 @@ function SWEP:PrimaryAttack()
 	self:EmitSound( self.Weapon.Primary.Sound )
 
 	if self.Owner:GetNWBool("isaiming") == true then
-		self:ShootBullet( self.Primary.Damage, 1, self.Secondary.Cone )
+		self:ShootBullet( self.Primary.Damage, 1, self.Secondary.Cone, self.Primary.Ammo, self.BulletForce )
 	else
-		self:ShootBullet( self.Primary.Damage, 1, self.Primary.Cone )
+		self:ShootBullet( self.Primary.Damage, 1, self.Primary.Cone, self.Primary.Ammo, self.BulletForce )
 	end
 	self:TakePrimaryAmmo( 1 )
 
@@ -138,6 +140,10 @@ function SWEP:Reload()
 	end
 	self.Weapon:SendWeaponAnim( ACT_VM_RELOAD )
 
+	local reloadmodifier = 1
+
+	self.Owner:GetViewModel():SetPlaybackRate( reloadmodifier )
+
 	if CLIENT then
 		--self.Owner:GetViewModel():SetAnimTime(CurTime() + 100)
 		
@@ -145,12 +151,12 @@ function SWEP:Reload()
 	--self.Owner:GetViewModel():SetPlaybackRate(0.1)
 	self.Owner:SetAnimation(PLAYER_RELOAD)
 	
-	reloaddelay = CurTime() + 3.2
+	reloaddelay = CurTime() + (3.2 / reloadmodifier)
 	
 	
 	
-	self:SetNextPrimaryFire(CurTime() + 3.2)
-	self:SetNextSecondaryFire(CurTime() + 3.2)
+	self:SetNextPrimaryFire(CurTime() + (3.2 / reloadmodifier))
+	self:SetNextSecondaryFire(CurTime() + (3.2 / reloadmodifier))
 end
 
 

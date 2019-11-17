@@ -24,6 +24,8 @@ SWEP.Secondary.Cone			= 0.008
 SWEP.Secondary.FOV			= 20
 SWEP.Secondary.Zoom			= 40 -- FOV you want in the optic
 
+SWEP.BulletForce = 0.25
+
 SWEP.HoldType				= "ar2"
 SWEP.Weight = 1
 SWEP.Slot = 2

@@ -74,33 +74,44 @@ function SWEP:Initialize()
 	self.Owner:SetNWBool("isaiming", false)
 	self.Owner:SetNWFloat("chargeupsniper", 0)
 	self.BobScaleBackup = self.BobScale
-	--self:GetViewModel():SetSkin(14)
 	if CLIENT then
-		self.Weapon:ScopeThing()
-		self.Weapon.RenderTarget = GetRenderTarget("ScopeDrawPlease2", ScrW( ), ScrH( ), false)
-
-		custommat2 = Material( "models/weapons/v_sniperrifle/v_sniperrifle_scope"  )
-
-		local texture_matrix = custommat2:GetMatrix("$basetexturetransform")
-
-		texture_matrix:SetAngles(Angle(0, 180, 0)) 
-		texture_matrix:SetScale(Vector(2, 1, 1)) 
-		--texture_matrix:SetTranslation(Vector(1000,0,0))
-
-		custommat2:SetMatrix("$basetexturetransform", texture_matrix)
-
-		custommat2:SetUndefined("$envmap")
-		
-		
-		
-		custommat2:SetTexture("$basetexture", self.Weapon.RenderTarget)
-
-		
-
-		--custommat2:SetString("$translucent", "1")
-		--custommat2:SetString("$alpha", 100)
-		--custommat2:SetString("$basetexturetransform","center .5 .5 scale -1 1 rotate 40 translate 0 0")
+		self:updatescopetextmeme()
 	end
+end
+
+function SWEP:Deploy()
+	if CLIENT then
+		self:updatescopetextmeme()
+	end
+end
+
+function SWEP:updatescopetextmeme()
+	self.Weapon:ScopeThing()
+	self.Weapon.RenderTarget = GetRenderTarget("fwep_optic", ScrW( ), ScrH( ), false)
+
+	local custommat2 = Material( "models/weapons/v_sniperrifle/v_sniperrifle_scope"  )
+
+	local texture_matrix = custommat2:GetMatrix("$basetexturetransform")
+
+	texture_matrix:SetAngles(Angle(0, 180, 0)) 
+	texture_matrix:SetScale(Vector(2, 1, 1)) 
+	--texture_matrix:SetTranslation(Vector(1000,0,0))
+
+	custommat2:SetMatrix("$basetexturetransform", texture_matrix)
+
+	custommat2:SetUndefined("$envmap")
+	
+	
+	
+	custommat2:SetTexture("$basetexture", self.Weapon.RenderTarget)
+
+	
+
+	--custommat2:SetString("$translucent", "1")
+	--custommat2:SetString("$alpha", 100)
+	--custommat2:SetString("$basetexturetransform","center .5 .5 scale -1 1 rotate 40 translate 0 0")
+
+
 end
 
 function SWEP:TranslateFOV( fov )

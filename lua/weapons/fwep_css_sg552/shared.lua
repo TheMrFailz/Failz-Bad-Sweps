@@ -5,7 +5,7 @@ SWEP.Spawnable = true
 SWEP.Base			= "fwep_css_scout"
 SWEP.Category	= "FSweps"
 
-SWEP.Primary.Damage			= 31
+SWEP.Primary.Damage			= 32
 SWEP.Primary.ClipSize		= 30
 SWEP.Primary.DefaultClip	= 30
 SWEP.Primary.Automatic		= true
@@ -24,6 +24,8 @@ SWEP.Secondary.Cone			= 0.01
 SWEP.Secondary.FOV			= 20
 SWEP.Secondary.Zoom			= 70 -- FOV you want in the optic
 
+SWEP.BulletForce = 0.25
+
 SWEP.HoldType				= "ar2"
 SWEP.Weight = 1
 SWEP.Slot = 2
@@ -37,6 +39,8 @@ SWEP.WorldModel = "models/weapons/w_rif_sg552.mdl"
 SWEP.AllowSprintAng = true
 SWEP.ViewKick = 0.7
 SWEP.ZoomLevel = 5
+
+SWEP.BulletForce = 0.3
 
 local reloaddelay = 0
 
